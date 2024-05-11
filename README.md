@@ -1,5 +1,7 @@
 # Glass Tiled Window GIMP Plugin
 
+Make your image appear behind a stained glass window using this plugin.
+
 ![image preview](previews/image.webp)
 
 Glass Tiles as a layer group effect in GIMP 2.99.19
