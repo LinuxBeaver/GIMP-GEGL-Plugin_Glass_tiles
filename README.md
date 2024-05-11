@@ -1,6 +1,6 @@
-Glass Tiled Window GIMP Plugin
+# Glass Tiled Window GIMP Plugin
 
-![image preview](previews/image1.webp)
+![image preview](previews/image.webp)
 
 Glass Tiles as a layer group effect in GIMP 2.99.19
 it applies to everything inside the layer group.
