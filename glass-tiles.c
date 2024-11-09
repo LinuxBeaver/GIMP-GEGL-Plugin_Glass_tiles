@@ -122,6 +122,11 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:nop",
                                   NULL);
 
+  GeglNode*fix = gegl_node_new_child (gegl,
+                                  "operation", "gegl:median-blur", "radius", 0, "abyss-policy", 0, 
+                                  NULL);
+
+
   GeglNode*behind = gegl_node_new_child (gegl,
                                   "operation", "gegl:dst-over",
                                   NULL);
@@ -132,7 +137,7 @@ static void attach (GeglOperation *operation)
 
 
   GeglNode*opacity = gegl_node_new_child (gegl,
-                                  "operation", "gegl:opacity", "value", 0.75,
+                                  "operation", "gegl:opacity", "value", 0.9o,
                                   NULL);
 
   GeglNode*normal = gegl_node_new_child (gegl,
@@ -165,7 +170,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
 /*Replace blend mode contains everything except the behind blend mode*/
-  gegl_node_link_many (input, replace, behind, idref, normal,  output, NULL);
+  gegl_node_link_many (input, replace, fix, behind, idref, normal,  output, NULL);
   gegl_node_connect (replace, "aux", opacity, "output");
 /*Main content inside the replace blend mode*/
   gegl_node_link_many (grid, lens,  emboss, opacity, NULL);
